@@ -11,6 +11,7 @@ import './App.css';
 import Store from './Store';
 import {Address, Restaurant} from './model/restaurant';
 import BestMenu from './BestMenu';
+import BestMenu2 from './BestMenu';
 
 let data:Restaurant = {
   name:'누나네 식당',
@@ -49,7 +50,10 @@ const App:React.FC = () => {
   return (
     <div className="App">
       <Store info={myRestaurant} changeAddress={changeAddress} changeAddress2={changeAddress2} />
-      <BestMenu name="불고기피자" category="피자" price={1000} showBestMenuName={showBestMenuName} />
+      {/* 아래는 price={1000}가 포함된 <BestMenu> 태그 구현 */}
+      {/* <BestMenu name="불고기피자" category="피자" price={1000} showBestMenuName={showBestMenuName} /> */}
+      {/* 아래는 price={1000}가 제외된 <BestMenu2> 태그 구현 */}
+      <BestMenu2 name="불고기피자" category="피자" showBestMenuName={showBestMenuName} /> 
     </div>
   );
 }

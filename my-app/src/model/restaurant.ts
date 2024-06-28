@@ -32,9 +32,25 @@ export type Address = {
     zipCode:Number;
 }
 
+// 키워드 ? 적용한 사용자 정의 타입 Address2 정의
+export type Address2 = {
+    city:string;
+    detail:string;
+    zipCode?:Number;   // 키워드 ? 기능 - es6 버전부터 사용가능 하며 Omit<T>와 비슷한 기능이다. 해당 기능 사용시 export type Address2에 'zipCode'가 있을 수도 있고, 없을 수도 있다. ('zipCode' 사용할 수도 있고, 사용 안 할수도 있다.)
+}
+
 // 사용자 정의 타입 Menu 정의
 export type Menu = {
     name:string;
     price:number;
     category:string;
 }
+
+// 키워드 Omit 의미 - export type에서 필요 없는 거 빼주세요. 기능 의미
+// 아래는 Omit<T> 사용해서 export type Address에서 필요 없는 'zipCode'를 빼서 새로운 타입 AddressWithoutZip 정의
+export type AddressWithoutZip = Omit<Address, 'zipCode'>
+
+// 키워드 Pick 의미 - export type에서 필요한거 추가해주세요. 기능 의미
+// 아래는 사용해서 export type Restaurant에서 필요한 것 ''을 추가해서 새로운 타입 RestaurantOnlyCategory 정의
+export type RestaurantOnlyCategory = Pick<Restaurant, 'category'>
+
